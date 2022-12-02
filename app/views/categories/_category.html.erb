@@ -1,0 +1,16 @@
+<div id="<%= dom_id category %>">
+    <small>
+      <i>Last updated: <%= category.updated_at.strftime("%d %B %C%y") %></i>
+    </small>
+    <h2 class="turbo-name">
+      <strong>Name:</strong>
+      <%= category.name %>
+    </h2>
+
+    <p class="turbo-details">
+      <strong>Details:</strong>
+      <%= category.details %>
+    </p>
+    <%= link_to "Show this category", category %>
+    <%= button_to "Delete this category", category, method: :delete %>
+  </div>

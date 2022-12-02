@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @category = categories(:one)
+  end
+
   test "should get index" do
     get categories_url
     assert_response :success
@@ -8,6 +12,11 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_category_url
+    assert_response :success
+  end
+
+  test "should show category" do
+    get category_url(@category)
     assert_response :success
   end
 
