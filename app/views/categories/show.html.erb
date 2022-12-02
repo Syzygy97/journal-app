@@ -7,5 +7,16 @@
   <%= @category.details %>
 </p>
 
+<p>
+  Tasks list
+  <% @category.tasks.each do |task| %>
+    <h3><%= task.name %></h3>
+    <h4><%= task.details %></h4>
+    <%= task.completion %>
+    </br>
+  <% end %>
+  <h4><%= link_to "Add a new task", new_category_task_url(@category) %></h4>
+</p>
+
 <h4><%= link_to "Edit this blog", edit_category_url(@category) %></h4>
 
