@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :get_category
+  before_action :get_task, only: %i[ show edit update destroy ]
+  before_action :get_category, only: %i[ index new create]
 
   def index
     @tasks = @category.tasks
@@ -28,9 +29,17 @@ class TasksController < ApplicationController
   end
 
   def update
+    if @task.update(task_params)
+      redirect_to category_url(@category)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @task.destroy
+
+    redirect_to category_url(@category)
   end
 
   private
@@ -39,8 +48,13 @@ class TasksController < ApplicationController
     @category = Category.find(params[:category_id])
   end
 
+  def get_task
+    get_category
+    @task = @category.tasks.find(params[:id])
+  end
+
   def task_params
-    params.require(:task).permit(:name, :details)
+    params.require(:task).permit(:name, :details, :completion)
   end
 
 end

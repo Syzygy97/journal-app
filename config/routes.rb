@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   get 'categories/:category_id/tasks', to: "tasks#index", as: "category_tasks"
   get 'categories/:category_id/tasks/new', to: "tasks#new", as: "new_category_task"
   get 'categories/:category_id/tasks/:id', to: "tasks#show", as: "category_task"
-  post 'categories/:category_id/tasks', to: "tasks#create"
+  post 'categories/:category_id/tasks', to: "tasks#create", as: "create_category_task"
+  get 'categories/:category_id/tasks/:id/edit', to: "tasks#edit", as: "edit_category_task"
+  patch 'categories/:category_id/tasks/:id', to: "tasks#update"
+  # put 'categories/:category_id/tasks/:id', to: "tasks#update"
+  delete 'categories/:category_id/tasks/:id', to: "tasks#destroy"
+
   get 'categories', to: "categories#index", as: "categories"
   get 'categories/:id', to: "categories#show", as: "category"
   get 'category/new', to: "categories#new", as: "new_category"

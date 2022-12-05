@@ -24,4 +24,22 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     post create_category_url, params: { category: {name: "Work", details: "All work related events or tasks."} }
     assert_response :redirect
   end
+
+  test "should get edit" do
+    get edit_category_url(@category)
+    assert_response :success
+  end
+
+  test "should update category" do
+    patch category_url(@category), params: { category: { name: @category.name, details: @category.details } }
+    assert_redirected_to category_url(@category)
+  end
+
+  test "should destroy category" do
+    assert_difference("Category.count", -1) do
+      delete category_url(@category)
+    end
+
+    assert_redirected_to categories_url
+  end
 end
