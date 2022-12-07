@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :show, :destroy]
 
   def index
     @categories = Category.all
@@ -9,14 +11,16 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Category.new
+    # @category = Category.new
+    @category = current_user.categories.new
   end
 
   def edit
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.new(category_params)
+    # @category = Category.new(category_params)
     # @category.name = params[:name]
     # @category.details = params[:details]
     
@@ -41,6 +45,11 @@ class CategoriesController < ApplicationController
     redirect_to categories_url
   end
   
+  def correct_user
+    @category = current_user.categories.find_by(id: params[:id])
+    redirect_to categories_path, notice: "Not An Authorized User" if @category.nil?
+  end
+
   private
 
     def set_blog
@@ -48,6 +57,6 @@ class CategoriesController < ApplicationController
     end
 
     def category_params
-      params.require(:category).permit(:name, :details)
+      params.require(:category).permit(:name, :details, :user_id)
     end
 end

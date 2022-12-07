@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'categories/:category_id/tasks', to: "tasks#index", as: "category_tasks"
   get 'categories/:category_id/tasks/new', to: "tasks#new", as: "new_category_task"
   get 'categories/:category_id/tasks/:id', to: "tasks#show", as: "category_task"
@@ -19,5 +20,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "categories#index"
+  root to: "categories#index"
+  
 end

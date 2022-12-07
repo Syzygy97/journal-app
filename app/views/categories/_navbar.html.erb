@@ -6,7 +6,9 @@
   <strong><i><h2>YOUR LOGO HERE</h2></i></strong>
   <ul>
     <li><%= link_to "New Category", new_category_url %></li>
-    <li>Sign in</li>
-    <li>Sign up</li>
+    <li><%= link_to "Sign in", new_user_session_url %></li>
+    <li><%= link_to "Sign up", new_user_registration_url %></li>
+    <li><%= link_to "Edit profile", edit_user_registration_url %></li>
+    <li><%= link_to "Sign out", destroy_user_session_url, method: :delete %></li>
   </ul>
 </nav>

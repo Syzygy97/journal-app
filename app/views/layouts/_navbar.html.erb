@@ -1,0 +1,19 @@
+<nav id = "top-bar">
+  <ul>
+    <li>HOME</li>
+    <% if user_signed_in? %>
+      <li><%= link_to "Categories", categories_url %></li>
+    <% end %>
+  </ul>
+  <strong><i><h2>YOUR LOGO HERE</h2></i></strong>
+  <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to "New Category", new_category_url %></li>
+      <li><%= link_to "Edit profile", edit_user_registration_path %></li>
+      <li><%= button_to "Sign out", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Sign in", new_user_session_path %></li>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+    <% end %>
+  </ul>
+</nav>

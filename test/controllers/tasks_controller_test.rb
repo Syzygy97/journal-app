@@ -5,19 +5,24 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   #   get category_task_url
   #   assert_response :success
   # end
+  setup do
+    @task = tasks(:one)
+  end
 
   test "should get new" do
-    get new_category_task_url categories(:one)
+    get new_category_task_url @task
     assert_response :success
   end
 
   test "should show task" do
-    get category_task_url(tasks(:one))
+    get category_task_url(@task)
     assert_response :success
   end
 
   test "should create task" do
-    post create_category_task_url, params: { task: {name: "Repaste laptop", details: "Use either Arctic MX-5 or Thermal Grizzly Kryonaut"} }
+    assert_difference ("Task.count") do
+      post category_tasks_url, params: { task: { name: @task.name, details: @task.details, completion: @task.completion } }
+    end
     assert_response :redirect
   end
 end

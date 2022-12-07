@@ -21,7 +21,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create category" do
-    post create_category_url, params: { category: {name: "Work", details: "All work related events or tasks."} }
+    post categories_url, params: { category: { name: @category.name, details: @category.details } }
     assert_response :redirect
   end
 
