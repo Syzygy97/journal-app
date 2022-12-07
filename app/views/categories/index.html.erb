@@ -1,5 +1,13 @@
-<h1>Categories</h1>
+<% if user_signed_in? %>
 
-<%= render @categories %>
+  <h1>Categories</h1>
+
+  <%= render @categories %>
+
+<% else %>
+
+  <h1>HELLO WORLD</h1>
+
+<% end %>
 
 

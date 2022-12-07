@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   get 'categories/:category_id/tasks', to: "tasks#index", as: "category_tasks"
   get 'categories/:category_id/tasks/new', to: "tasks#new", as: "new_category_task"
   get 'categories/:category_id/tasks/:id', to: "tasks#show", as: "category_task"
