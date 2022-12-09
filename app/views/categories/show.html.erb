@@ -1,24 +1,22 @@
 
 <%= render "layouts/navbar" %>
-<h1>
-  <%= @category.name %>
-</h1>
-<p>
-  <%= @category.details %>
-</p>
-<h4><%= link_to "Edit this category", edit_category_url(@category) %></h4>
-</br>
-<p>
-  Tasks list
-  <% @category.tasks.each do |task| %>
-    <h4><%= task.details %></h4>
-    <%= task.completion %>
-    <h4><%= link_to "Edit this task", edit_category_task_url(@category.id, task.id) %></h4>
-    <h4><%= button_to "Delete this task", @task, method: :delete %></h4>
-    </br>
-  <% end %>
-  <h4><%= link_to "Add a new task", new_category_task_url(@category) %></h4>
-</p>
-
+<div class = "show-category-container">
+  <div class = "show-tasks">
+    <% @category.tasks.each do |task| %>
+      <div class = "tasks-list">
+        <h4><%= task.details %></h4>
+        <%= task.completion %>
+        <h4><%= link_to "Edit this task", edit_category_task_url(@category.id, task.id) %></h4>
+        <h4><%= button_to "Delete this task", @task, method: :delete %></h4>
+      </div>
+    <% end %>
+    <h4><%= link_to "+", new_category_task_url(@category) %></h4>
+  </div>
+  <div class = "show-category">
+    <h1><%= @category.name %></h1>
+    <p><%= @category.details %></p>
+    <h4><%= link_to "Edit this category", edit_category_url(@category) %></h4>
+  </div>
+</div>
 
 

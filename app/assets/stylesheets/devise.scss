@@ -25,3 +25,30 @@
   color: #468847;
   text-align: left;
 }
+
+.edit-profile-container {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field > label {
+  font-size: 1.25rem;
+}
+
+.field > input {
+  height: 6vh;
+  width: 80vw;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.actions > input {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.75rem;
+}

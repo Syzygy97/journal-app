@@ -10,6 +10,10 @@ class CategoriesController < ApplicationController
   def show
   end
 
+  def collections
+    @categories = Category.all
+  end
+
   def new
     # @category = Category.new
     @category = current_user.categories.new

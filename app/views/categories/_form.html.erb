@@ -11,21 +11,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class = "category-form">
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name , class: "category-form-name"%>
+    </div>
+
+    <div>
+      <%= form.label :details %>
+      <%= form.text_area :details, class: "category-form-details"%>
+    </div>
+
+    <div>
+      <%= form.number_field :user_id, value: current_user.id, id: :category_user_id, type: :hidden %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :details %>
-    <%= form.text_field :details %>
-  </div>
-
-  <div>
-    <%= form.number_field :user_id, value: current_user.id, id: :category_user_id, type: :hidden %>
-  </div>
-
-  <div id="create-btn">
+  <div class="create-btn">
     <%= form.submit %>
   </div>
 

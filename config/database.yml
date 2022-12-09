@@ -25,8 +25,8 @@ test:
 
 production:
   <<: *default
-  database: journal-app_production
-  host: ENV['PGHOST']
-  username: ENV['PGUSER']
-  password: ENV['PGPASSWORD']
-  port: ENV['PGPORT']
+  database: journal_app_production
+  host: <%= ENV.fetch('PGHOST') {"dpg-ce9hf5hgp3jtsan8e370-a"} %>
+  username: <%= ENV.fetch('PGUSER') {"journal_app"} %>
+  password: <%= ENV.fetch('PGPASSWORD') {"jiyXoiWL3bTBgv3Lqib7MinvRbvV54je"} %>
+  port: 5432

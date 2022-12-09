@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   patch 'categories/:id', to: "categories#update"
   put 'categories/:id', to: "categories#update"
   delete 'categories/:id', to: "categories#destroy"
+
+  get 'collections', to: "categories#collections", as: "categories_collections"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

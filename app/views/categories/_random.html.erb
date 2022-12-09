@@ -1,0 +1,15 @@
+<div class = "task-box">
+  <div class = "task-1"></div>
+  <div class = "task-2"></div>
+  <div class = "task-3"></div>
+</div>
+<div class = "random-category-box">
+  <% @categories.where(id: @categories.ids.sample(3)).each do |category| %>
+    <% if category.user == current_user %>
+      <div class = "random-category">
+        <h6><%= category.name %></h6>
+        <h4><%= category.details %></h4>
+      </div>
+    <% end %>
+  <% end %>
+</div>
