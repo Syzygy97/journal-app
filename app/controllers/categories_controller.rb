@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   before_action :correct_user, only: [:edit, :show, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   def show

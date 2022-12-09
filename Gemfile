@@ -51,6 +51,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # Use ransack to enable search functionality
 gem 'ransack'
 
+# Use flatpickr to enable date picker functionality
+gem 'flatpickr'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
