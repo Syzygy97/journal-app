@@ -1,5 +1,5 @@
 
-
+<%= render "layouts/navbar" %>
 <h1>
   <%= @category.name %>
 </h1>
@@ -11,7 +11,6 @@
 <p>
   Tasks list
   <% @category.tasks.each do |task| %>
-    <h3><%= task.name %></h3>
     <h4><%= task.details %></h4>
     <%= task.completion %>
     <h4><%= link_to "Edit this task", edit_category_task_url(@category.id, task.id) %></h4>

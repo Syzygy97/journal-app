@@ -1,13 +1,73 @@
 <% if user_signed_in? %>
-
-  <h1>Categories</h1>
-
-  <%= render @categories %>
-
+  <%= render "layouts/navbar" %>
+  <div class = "category-container">
+    <section class = "snapshot-today">
+      <header>
+        <div class = "date-today">
+          <div class = "day-number">
+            <h3><%= DateTime.now.strftime("%d") %></h3>
+          </div>
+          <div class = "day-details">
+            <div id = "day-name">
+              <%= DateTime.now.strftime("%A") %>
+            </div>
+            <div id = "month-year">
+              <%= DateTime.now.strftime("%B") %> <%= DateTime.now.strftime("%C%y") %>
+            </div>
+          </div>
+        </div>
+        <div class = "daily-quote">
+          <h4>“Just one small positive thought in the morning can change your whole day.”</h4>
+          <h4>— Dalai Lama</h4>
+        </div>
+      </header>
+      <main>
+        <div class = "tasks-today">
+          <%= render @categories %>
+        </div>
+        <div class = "create-new-task">
+          EXISTING TASK DROPDOWN
+          <br>
+          - task details
+          <br>
+          DATEPICKER
+        </div>
+      </main>
+    </section>
+    <section class = "categories-list">
+      <% @categories.each do |category| %>
+        <% if category.user == current_user %>
+          <div class = "category-name">
+            <%= link_to category.name, category %>
+          </div>
+        <% end %>
+      <% end %>
+    </section>
+    <section class = "three-random-categories">
+      <div class = "task-box">
+        <div class = "task-1"></div>
+        <div class = "task-2"></div>
+        <div class = "task-3"></div>
+      </div>
+      <div class = "random-category-box">
+        <% @categories.where(id: @categories.ids.sample(3)).each do |category| %>
+          <% if category.user == current_user %>
+            <div class = "random-category">
+              <h6><%= category.name %></h6>
+              <h4><%= category.details %></h4>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+    <div class = "color-box">
+      <div class = "color-1"></div>
+      <div class = "color-2"></div>
+      <div class = "color-3"></div>
+    </div>
+  </div>
 <% else %>
-
-  <h1>HELLO WORLD</h1>
-
+  <%= render "layouts/home" %>
 <% end %>
 
 
