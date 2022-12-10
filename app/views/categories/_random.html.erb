@@ -16,7 +16,7 @@
   <% @categories.where(id: random_category_ids).each do |category| %>
     <% if category.user == current_user %>
       <div class = "random-category">
-        <h6><%= category.name %></h6>
+        <div class = "random-category-name"><%= category.name %></div>
         <h4><%= category.details %></h4>
       </div>
     <% end %>

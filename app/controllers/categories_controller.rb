@@ -1,11 +1,11 @@
 class CategoriesController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
   before_action :correct_user, only: [:edit, :show, :destroy]
 
   def index
-    @categories = current_user.categories
-    # @categories = Category.all  
+    # @categories = current_user.categories
+    @categories = Category.where(user_id: current_user.id) 
   end
 
   def show

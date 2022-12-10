@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    padding: 0.25rem;
 
     .tasks-list {
       display: flex;
@@ -52,6 +53,10 @@
 
       color: rgb(255, 204, 0);
     }
+
+    a:hover {
+      color: green;
+    }
   }
 
   .show-category {
@@ -72,6 +77,11 @@
       text-align: center;
       font-size: 1.5rem;
     }
+    P {
+      overflow-y: auto;
+      padding: 0.5rem;
+      height: 13vh;
+    }
   }
 }
 
@@ -79,5 +89,10 @@
   padding: 0.25rem 0.5rem;
   color: rgb(255, 204, 0);
   background-color: black;
-  margin-top: 0.5rem;
+}
+
+.button_to > button:hover {
+  padding: 0.25rem 0.5rem;
+  color: black;
+  background-color: red;
 }

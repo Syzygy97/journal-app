@@ -14,6 +14,16 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get edit" do
+    get edit_category_task_url(@category)
+    assert_response :success
+  end
+
+  test "should update task" do
+    patch category_task_url(@category), params: { task: { day: @task.day, details: @task.details } }
+    assert_redirected_to category_url(@category)
+  end
+
   test "should show task" do
     get category_task_url(@task)
     assert_response :success
