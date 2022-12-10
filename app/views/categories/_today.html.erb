@@ -1,0 +1,34 @@
+<header>
+  <div class = "date-today">
+    <div class = "day-number">
+      <h3><%= DateTime.now.strftime("%d") %></h3>
+    </div>
+    <div class = "day-details">
+      <div id = "day-name">
+        <%= DateTime.now.strftime("%A") %>
+      </div>
+      <div id = "month-year">
+        <%= DateTime.now.strftime("%B") %> <%= DateTime.now.strftime("%C%y") %>
+      </div>
+    </div>
+  </div>
+  <div class = "daily-quote">
+    <h4>“Just one small positive thought in the morning can change your whole day.”</h4>
+    <h4>— Dalai Lama</h4>
+  </div>
+  <div class = "current-user-email">
+    <h5><%= current_user.email %></h5>
+  </div>
+</header>
+<main>
+  <div class = "tasks-today">
+    <%= render @categories %>
+  </div>
+  <div class = "create-new-task">
+    EXISTING TASK DROPDOWN
+    <br>
+    - task details
+    <br>
+    DATEPICKER
+  </div>
+</main>

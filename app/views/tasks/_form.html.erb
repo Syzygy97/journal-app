@@ -1,4 +1,4 @@
-<%= form_with(model: [@category, @task], class: "task-form-container") do |form| %>
+<%= form_with(model: [@category, @task], class: "task-form-container", data: {turbo: false}) do |form| %>
   <% if @task.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -14,6 +14,10 @@
   <div class = "task-form-details">
     <h1><%= form.label :details %> FOR <%= @category.name %> CATEGORY</h1>
     <%= form.text_area :details%>
+  </div>
+
+  <div class = "task-form-date">
+    <%= form.date_field :day %>
   </div>
 
   <div class="create-btn">

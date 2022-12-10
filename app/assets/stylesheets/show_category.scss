@@ -13,7 +13,7 @@
     width: 95%;
     // position: relative;
     border: 1px solid black;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     background-color: white;
     padding: 1rem 1rem;
     display: flex;
@@ -21,10 +21,19 @@
     overflow-y: auto;
   }
 
-  .tasks-list {
+  .tasks-list-container {
     height: 25%;
     width: 50%;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .tasks-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   .show-tasks > h4 {
@@ -64,4 +73,11 @@
       font-size: 1.5rem;
     }
   }
+}
+
+.button_to > button {
+  padding: 0.25rem 0.5rem;
+  color: rgb(255, 204, 0);
+  background-color: black;
+  margin-top: 0.5rem;
 }

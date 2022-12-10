@@ -4,10 +4,13 @@
 <% random_id_3 = random_category_ids[2] %>
 
 <div class = "task-box">
-  <div class = "task-1">
-  </div>
-  <div class = "task-2"></div>
-  <div class = "task-3"></div>
+  <% @categories.where(id: random_category_ids).each do |category| %>
+    <div class = "tasks">
+    <% category.tasks.each do |task| %>
+      <li><%= task.details %></li>
+    <% end %>
+    </div>
+  <% end %>
 </div>
 <div class = "random-category-box">
   <% @categories.where(id: random_category_ids).each do |category| %>

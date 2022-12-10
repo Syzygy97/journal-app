@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search', to: "search#index"
   devise_for :users
   
   get 'categories/:category_id/tasks', to: "tasks#index", as: "category_tasks"

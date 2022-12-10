@@ -49,7 +49,7 @@ gem "sassc-rails"
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # Use ransack to enable search functionality
-gem 'ransack'
+# gem 'ransack'
 
 # Use flatpickr to enable date picker functionality
 gem 'flatpickr'
@@ -79,3 +79,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# gem "webpacker", "~> 5.4"
+
+gem "ransack", "~> 3.2"
