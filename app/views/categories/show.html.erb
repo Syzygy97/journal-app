@@ -1,23 +1,27 @@
 <%= render "layouts/navbar" %>
 <div class = "show-category-container">
   <h1>TASKS</h1>
-  <div class = "show-tasks">
-    <% @category.tasks.each do |task| %>
-      <div class = "tasks-list-container">
-        <div class = "tasks-list">
-          <h4> Due: <%= task.day.strftime("%d %B %C%y") %></h4>
-          
-          <h4><%= link_to "Edit this task", edit_category_task_url(@category.id, task.id) %> <%= button_to "Delete this task", category_task_path(@category.id, task.id), method: :delete %></h4>
+  <div class = "show-tasks-container">
+    <div class="show-tasks">
+      <% @category.tasks.each do |task| %>
+        <div class = "tasks-list-container">
+          <div class = "tasks-list">
+            <h4 data-deadline = "<%= task.day.strftime("%d %B %C%y") %>"> Due: <%= task.day.strftime("%d %B %C%y") %></h4>
+            <div>
+              <%= link_to "\u270E", edit_category_task_url(@category.id, task.id) %>
+              <%= button_to "Delete this task", category_task_path(@category.id, task.id), method: :delete %>
+            </div>
+          </div>
+          <h4><%= task.details %></h4>
         </div>
-        <h4><%= task.details %></h4>
-      </div>
-    <% end %>
-    <h4><%= link_to "+", new_category_task_url(@category) %></h4>
+      <% end %>
+      <h4><%= link_to "+", new_category_task_url(@category) %></h4>
+    </div>
   </div>
   <div class = "show-category">
-    <h1><%= @category.name %></h1>
+    <h1><%= link_to "\u270E", edit_category_url(@category) %> <%= @category.name %></h1>
     <p><%= @category.details %></p>
-    <h4><%= link_to "Edit this category", edit_category_url(@category) %></h4>
+    
   </div>
 </div>
 

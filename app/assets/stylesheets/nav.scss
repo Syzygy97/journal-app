@@ -8,17 +8,29 @@
   padding: 0 3rem;
   background-color: rgb(255, 204, 0);
   color: black;
+
+  ul {
+    display: flex;
+    gap: 3rem;
+    width: 30vw;
+    text-align: center;
+    align-items: center;
+  }
+
+  ul:first-child {
+    justify-content: flex-start;
+  }
+  ul:last-child {
+    justify-content: flex-end;
+  }
+  ul > li {
+    list-style: none;
+  }
 }
-ul {
-  display: flex;
-  gap: 3rem;
-}
-ul > li {
-  list-style: none;
-}
-#top-bar > strong {
-  margin-right: 3rem;
-}
+
+// #top-bar > strong {
+//   margin-right: 3rem;
+// }
 
 #top-bar > ul > li > a {
   color: black;

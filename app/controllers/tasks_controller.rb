@@ -39,7 +39,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to category_url(@category)
+    redirect_to categories_url(@category)
   end
 
   private

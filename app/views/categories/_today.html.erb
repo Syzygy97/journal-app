@@ -21,8 +21,30 @@
   </div>
 </header>
 <main>
+  <% date_today = Date.today.strftime("%d %B %C%y") %>
+  <h2>Tasks for today</h2>
   <div class = "tasks-today">
-    <%= render @categories %>
+    <div class = "tasks-list-today">
+      <% @categories.each do |category| %>
+        <% if category.user == current_user %>
+          <% category.tasks.each do |task| %>
+            <% task_due_date = task.day.strftime("%d %B %C%y") %>
+            <% if task_due_date == date_today %>
+              <div class = "per-task">
+                <div class = "per-task-category">
+                  <h5><%= category.name %></h5>
+                  <div>
+                    <%= link_to "\u270E", edit_category_task_url(category.id, task.id) %>
+                    <%= button_to "\u{1F5D1}", category_task_path(category.id, task.id), method: :delete %>
+                  </div>
+                </div>
+                <li><%= task.details %></li>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class = "create-new-task">
     EXISTING TASK DROPDOWN

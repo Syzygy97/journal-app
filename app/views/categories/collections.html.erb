@@ -1,22 +1,24 @@
 <%= render "layouts/navbar" %>
 <div class="collection">
   <% @categories.each do |category| %>
-    <div class="collection-categories">
-      <div class="category-header">
-        <span>
-          Last Updated:
-          <%= category.updated_at.strftime("%d %B %C%y") %>
-        </span>
-        <p><%= link_to "Show this category", category %></p>
-        <p><%= button_to "Delete this category", category, method: :delete %></p>
+    <% if category.user == current_user %>
+      <div class="collection-categories">
+        <div class="category-header">
+          <span>
+            Last Updated:
+            <%= category.updated_at.strftime("%d %B %C%y") %>
+          </span>
+          <p><%= link_to "Show this category", category %></p>
+          <p><%= button_to "Delete this category", category, method: :delete %></p>
+        </div>
+        <h1><%= category.name %></h1>
+        <div class="category-content">
+          <h2>
+            <i>DETAILS:</i></br>
+            <%= category.details %>
+          </h2>
+        </div>
       </div>
-      <h1><%= category.name %></h1>
-      <div class="category-content">
-        <h2>
-          <i>DETAILS:</i></br>
-          <%= category.details %>
-        </h2>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

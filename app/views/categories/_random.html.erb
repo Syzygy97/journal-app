@@ -14,11 +14,13 @@
 </div>
 <div class = "random-category-box">
   <% @categories.where(id: random_category_ids).each do |category| %>
+    <%= link_to category do %>
     <% if category.user == current_user %>
       <div class = "random-category">
         <div class = "random-category-name"><%= category.name %></div>
         <h4><%= category.details %></h4>
       </div>
+    <% end %>
     <% end %>
   <% end %>
 </div>
