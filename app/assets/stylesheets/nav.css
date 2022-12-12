@@ -1,0 +1,42 @@
+#top-bar {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid black;
+  padding: 0 3rem;
+  background-color: rgb(255, 204, 0);
+  color: black;
+}
+#top-bar ul {
+  display: flex;
+  gap: 3rem;
+  width: 30vw;
+  text-align: center;
+  align-items: center;
+}
+#top-bar ul:first-child {
+  justify-content: flex-start;
+}
+#top-bar ul:last-child {
+  justify-content: flex-end;
+}
+#top-bar ul > li {
+  list-style: none;
+}
+
+#top-bar > ul > li > a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  transition: all 250ms ease-out;
+}
+
+#top-bar > ul > li > a:hover {
+  color: white;
+  text-decoration: underline;
+  background-color: rgb(9, 78, 63);
+  transition: all 250ms ease-in;
+}/*# sourceMappingURL=nav.css.map */
