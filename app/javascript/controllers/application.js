@@ -7,9 +7,9 @@ const deadline = document.querySelector("[data-deadline]");
 application.debug = false;
 window.Stimulus = application;
 
-deadline.addEventListener("click", (e) => {
-  console.log("test");
-});
+// deadline.addEventListener("click", (e) => {
+//   console.log("test");
+// });
 
 // function dateColor() {
 

@@ -13,6 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: RobotoConRegular;
+  src: url("RobotoCondensed-Regular.ttf");
+}
+
+@font-face {
+  font-family: EastSeaDokdo;
+  src: url("EastSeaDokdo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: ShadowsLightTwo;
+  src: url("ShadowsIntoLightTwo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: IndieFlower;
+  src: url("IndieFlower-Regular.ttf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
