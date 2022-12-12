@@ -67,6 +67,8 @@ main {
   display: flex;
   height: 36vh;
   flex-direction: column;
+  background-color: rgb(255, 204, 0);
+  border: 2px solid black;
 
   h2 {
     text-align: center;
@@ -76,7 +78,6 @@ main {
   }
   .tasks-today {
     width: 100%;
-    border: 2px solid black;
     background-color: rgb(255, 204, 0);
     padding: 0.5rem;
     overflow-y: auto;

@@ -25,26 +25,26 @@ class TaskTest < ActiveSupport::TestCase
     assert task.update(details: "Use Arctic MX-5 for better thermal paste longevity"), "Updated"
   end
 
-  test "should be able to show task details" do
-    task = Task.new
-    task.name = "Repaste laptop"
-    task.details = "Use either Arctic MX-5 or Thermal Grizzly Kryonaut"
-    task.completion = false
-    task.save
-    id = task.id
-    refute_nil Task.find(id), "Task exists"
-    assert_equal Task.find(id).details, "Use either Arctic MX-5 or Thermal Grizzly Kryonaut"
-  end
+  # test "should be able to show task details" do
+  #   task = Task.new
+  #   task.name = "Repaste laptop"
+  #   task.details = "Use either Arctic MX-5 or Thermal Grizzly Kryonaut"
+  #   task.completion = false
+  #   task.save
+  #   id = task.id
+  #   refute_nil Task.find(id), "Task exists"
+  #   assert_equal Task.find(id).details, "Use either Arctic MX-5 or Thermal Grizzly Kryonaut"
+  # end
 
-  test "should be able to toggle task completion" do
-    task = Task.new
-    task.name = "Repaste laptop"
-    task.details = "Use either Arctic MX-5 or Thermal Grizzly Kryonaut"
-    task.completion = false
-    task.save
-    assert task.toggle_completion
-    assert_equal task.completion, true
-    assert task.toggle_completion, "Can be undone"
-  end
+  # test "should be able to toggle task completion" do
+  #   task = Task.new
+  #   task.name = "Repaste laptop"
+  #   task.details = "Use either Arctic MX-5 or Thermal Grizzly Kryonaut"
+  #   task.completion = false
+  #   task.save
+  #   assert task.toggle_completion
+  #   assert_equal task.completion, true
+  #   assert task.toggle_completion, "Can be undone"
+  # end
 
 end

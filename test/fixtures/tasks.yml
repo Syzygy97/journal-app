@@ -4,8 +4,10 @@ one:
   name: MyString
   details: MyString
   completion: false
+  category_id: 1
 
 two:
   name: MyString
   details: MyString
   completion: false
+  category_id: 2

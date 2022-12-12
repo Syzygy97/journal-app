@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show ]
   before_action :correct_user, only: [:edit, :show, :destroy]
 
   def index
-    @categories = current_user.categories
-    # @categories = Category.where(user_id: current_user.id) 
+    # @categories = current_user.categories
+    @categories = Category.where(user_id: current_user.id)
+    # @categories = Category.all
   end
 
   def show
@@ -24,7 +25,9 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    # @category = Category.new(category_params)
     @category = current_user.categories.new(category_params)
+    # @category.user = current_user
     # @category = Category.new(category_params)
     # @category.name = params[:name]
     # @category.details = params[:details]
